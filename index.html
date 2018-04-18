@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Signin Template for Bootstrap</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>  
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        <h1>Cricko</h1>
+        <button id="sig" class="btn btn-lg btn-primary btn-block" type="submit">Sign in with google</button>
+        
+      
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    
+    <script>
+ 
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyChhEuk9RDu6feqbYba70uybMNb6rPjrQw",
+    authDomain: "cricko-f7114.firebaseapp.com",
+    databaseURL: "https://cricko-f7114.firebaseio.com",
+    projectId: "cricko-f7114",
+    storageBucket: "",
+    messagingSenderId: "21538415709"
+  };
+  firebase.initializeApp(config); 
+  var provider = new firebase.auth.GoogleAuthProvider();
+    
+  
+  
+  
+  
+  
+  
+  firebase.auth().onAuthStateChanged(function(user) {
+	  if (user) {
+	    // User is signed in.
+	    console.log("user logged");
+	   /*  $("#SO").show();
+	    $("#sig").hide(); */
+	    //redirect to home
+	    window.location.href = "home.html";
+	    
+	    
+	  } else {
+	    // No user is signed in.
+		  console.log("user logged not");
+		  
+		  $("#sig").show();
+	  }
+	});
+  
+  
+  
+  
+  
+  
+   $(document).ready(function(){
+   
+	    
+   $("#sig").click(function(){
+				console.log("f");
+		   firebase.auth().signInWithPopup(provider).then(function(result) {
+		  // This gives you a Google Access Token. You can use it to access the Google API.
+		  var token = result.credential.accessToken;
+		  // The signed-in user info.
+		  var user = result.user;
+		  console.log(user.displayName);
+		    window.location.href = "home.html";
+		  // ...
+		}).catch(function(error) {
+		
+		
+		console.log(error);
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // The email of the user's account used.
+		  var email = error.email;
+		  // The firebase.auth.AuthCredential type that was used.
+		  var credential = error.credential;
+		  // ...
+		});
+   
+   
+   
+   
+   });
+   
+   });
+   
+   
+   
+   
+</script>
+
+  </body>
+  
+</html>
