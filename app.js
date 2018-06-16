@@ -12,7 +12,7 @@
 var api = sc2.Initialize({
  app: 'steemkar',
   callbackURL: 'https://swapnachippagi.github.io/iop/index.html',
-  scope: ['vote', 'comment']
+  scope: ['vote', 'comment','custom_json']
 });
  
 
@@ -56,6 +56,13 @@ angular.module('app', [])
   
   console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
   
+  var jsonMetadata = JSON.stringify({
+            tags: ["dmania", "a", "b"], // your tags
+            app: "dmania",
+            format: "markdown", // "markdown" or "html"
+        });
+  
+  
  var permlink = steem.formatter.commentPermlink($scope.parentAuthor, $scope.parentPermlink);
   console.log(permlink);
      
@@ -68,7 +75,7 @@ api.comment(
   'Demo', // Title
   'This is a test!', // Body
  // { tags: ['demo'],app:'steemjs/steemkar'}, 
-{ tags: ['funny']},
+jsonMetadata,
 
   function(err, result) {
     console.log(err, result);
