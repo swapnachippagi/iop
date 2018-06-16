@@ -58,19 +58,22 @@ angular.module('app', [])
   
  var permlink = steem.formatter.commentPermlink($scope.parentAuthor, $scope.parentPermlink);
   console.log(permlink);
-  
- api.broadcast.comment('',$scope.parentPermlink , $scope.user.name ,
-permlink, 'new title', 'hai',
-JSON.stringify({
-tags: 'steem-versary',
-app: 'steem-versary'
-}),
-function(err, result) {
-console.log("Comment function called");
-console.log(result);
-console.log(err);
-});
-  };
+     
+   
+steem.broadcast.comment(
+  '', 
+  'dtube', // Parent Permlink
+  'chaithanya97', // Your username
+  'chaithanya97-newdlive', // Your post permlink
+  'Demo', // Title
+  'This is a test!', // Body
+ // { tags: ['demo'],app:'steemjs/steemkar'}, 
+{ tags: ['funny']},
+
+  function(err, result) {
+    console.log(err, result);
+  }
+);
 
     $scope.logout = function() {
       api.revokeToken(function (err, result) {
