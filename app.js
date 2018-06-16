@@ -24,7 +24,8 @@ angular.module('app', [])
     
    
     $scope.accessToken = $location.search().access_token;
-    
+    $scope.parentAuthor = 'chaithanya97';
+    $scope.parentPermlink = '567-ABC';
     $scope.expiresIn = $location.search().expires_in;
     $scope.loginURL = api.getLoginURL();
 
@@ -51,14 +52,16 @@ angular.module('app', [])
     };
  
  $scope.comment = function() {
-      $scope.loading = true;
+      
       var permlink = steem.formatter.commentPermlink($scope.parentAuthor, $scope.parentPermlink);
-      api.comment($scope.parentAuthor, $scope.parentPermlink, $scope.user.name, permlink, '', $scope.message, '', function(err, result) {
+      api.comment($scope.parentAuthor, $scope.parentPermlink, $scope.user.name, permlink, '', 'I dont know ', '
+                  {tags : ['ABC']}
+                  ', function(err, result) {
         console.log(err, result);
-        $scope.message = '';
-        $scope.loading = false;
+         
+        
         $scope.$apply();
-        $scope.loadComments();
+        
       });
     };
  
