@@ -64,7 +64,7 @@ steem.broadcast.comment(
   '', 
   'dtube', // Parent Permlink
   'chaithanya97', // Your username
-  'chaithanya97-newdlive', // Your post permlink
+  permlink, // Your post permlink
   'Demo', // Title
   'This is a test!', // Body
  // { tags: ['demo'],app:'steemjs/steemkar'}, 
