@@ -51,19 +51,21 @@ angular.module('app', [])
       return !!$scope.user;
     };
  
+ 
  $scope.comment = function() {
-      $scope.loading = true;
-      var permlink = steem.formatter.commentPermlink($scope.parentAuthor, $scope.parentPermlink);
-      api.comment('', 'ABC', $scope.user.name, permlink, 'new title', 'hai',{ tags: ['testABC'], app: `steemjs/examples` }, function(err, result) {
-        console.log(err, result);
-        
-        $scope.$apply();
-         
-      });
-    };
- 
- 
- 
+ var permlink = steem.formatter.commentPermlink($scope.parentAuthor, $scope.parentPermlink);
+ steem.broadcast.comment('',$scope.parentAuthor, $scope.parentPermlink , $scope.user.name ,
+permlink, 'new title', 'hai',
+JSON.stringify({
+tags: 'steem-versary',
+app: 'steem-versary'
+}),
+function(err, result) {
+console.log("Comment function called");
+console.log(result);
+console.log(err);
+});
+  };
 
     $scope.logout = function() {
       api.revokeToken(function (err, result) {
