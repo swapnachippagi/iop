@@ -43,6 +43,7 @@ angular.module('app', [])
     }
 
     $scope.isAuth = function() {
+     console.log("#################### "+$scope.user);
       return !!$scope.user;
     };
 
