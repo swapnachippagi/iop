@@ -11,7 +11,7 @@
 
 var api = sc2.Initialize({
  app: 'steemkar',
-  callbackURL: 'https://swapnachippagi.github.io/index.html',
+  callbackURL: 'https://swapnachippagi.github.io/iop/index.html',
   scope: ['vote', 'comment']
 });
  
