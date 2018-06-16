@@ -74,7 +74,7 @@ steem.broadcast.comment(
     console.log(err, result);
   }
 );
-
+ };
     $scope.logout = function() {
       api.revokeToken(function (err, result) {
         console.log('You successfully logged out', err, result);
