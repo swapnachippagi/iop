@@ -25,7 +25,7 @@ angular.module('app', [])
    
     $scope.accessToken = $location.search().access_token;
     $scope.parentAuthor = 'chaithanya97';
-    $scope.parentPermlink = '567-ABC';
+    $scope.parentPermlink = 'd';
     $scope.expiresIn = $location.search().expires_in;
     $scope.loginURL = api.getLoginURL();
 
