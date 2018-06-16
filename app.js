@@ -60,7 +60,7 @@ angular.module('app', [])
   console.log(permlink);
      
    
-steem.broadcast.comment(
+api.comment(
   '', 
   'dtube', // Parent Permlink
   'chaithanya97', // Your username
