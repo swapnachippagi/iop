@@ -50,6 +50,20 @@ angular.module('app', [])
       return !!$scope.user;
     };
  
+ $scope.comment = function() {
+      $scope.loading = true;
+      var permlink = steem.formatter.commentPermlink($scope.parentAuthor, $scope.parentPermlink);
+      api.comment($scope.parentAuthor, $scope.parentPermlink, $scope.user.name, permlink, '', $scope.message, '', function(err, result) {
+        console.log(err, result);
+        $scope.message = '';
+        $scope.loading = false;
+        $scope.$apply();
+        $scope.loadComments();
+      });
+    };
+ 
+ 
+ 
 
     $scope.logout = function() {
       api.revokeToken(function (err, result) {
