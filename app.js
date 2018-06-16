@@ -72,8 +72,8 @@ api.comment(
   'dmania', // Parent Permlink
   'chaithanya97', // Your username
   permlink, // Your post permlink
-  'Demo', // Title
-  'This is a test!', // Body
+  'Demo dmania', // Title
+  'This is a test dmania!', // Body
  // { tags: ['demo'],app:'steemjs/steemkar'}, 
 jsonMetadata,
 
