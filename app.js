@@ -54,7 +54,9 @@ angular.module('app', [])
  $scope.comment = function() {
       
       var permlink = steem.formatter.commentPermlink($scope.parentAuthor, $scope.parentPermlink);
-      api.comment($scope.parentAuthor, $scope.parentPermlink, $scope.user.name, permlink, '', 'I dont know ',{tags : ['ABC']}, function(err, result) {
+  ///$scope.parentAuthor, $scope.parentPermlink,permlink
+  
+      api.comment('','', $scope.user.name, , '','', 'I dont know ',{tags : ['ABC']}, function(err, result) {
         console.log(err, result);
          
         
