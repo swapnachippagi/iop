@@ -53,8 +53,13 @@ angular.module('app', [])
  
  
  $scope.comment = function() {
+  
+  console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+  
  var permlink = steem.formatter.commentPermlink($scope.parentAuthor, $scope.parentPermlink);
- api.broadcast.comment('',$scope.parentAuthor, $scope.parentPermlink , $scope.user.name ,
+  console.log(permlink);
+  
+ api.broadcast.comment('',$scope.parentPermlink , $scope.user.name ,
 permlink, 'new title', 'hai',
 JSON.stringify({
 tags: 'steem-versary',
