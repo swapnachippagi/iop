@@ -21,16 +21,16 @@ angular.module('app', [])
     $locationProvider.html5Mode(true);
   }])
   .controller('Main', function($scope, $location, $http) {
-    $scope.loading = false;
-    $scope.parentAuthor = 'siol';
-    $scope.parentPermlink = '5vdmjq-test';
+    
+   
     $scope.accessToken = $location.search().access_token;
- console.log($scope.accessToken);
+    
     $scope.expiresIn = $location.search().expires_in;
     $scope.loginURL = api.getLoginURL();
 
     if ($scope.accessToken) {
       api.setAccessToken($scope.accessToken);
+     
       api.me(function (err, result) {
         console.log('/me', err, result);
        console.log("%%%%%%%%%%%%%%%%%%"+$scope.accessToken);
