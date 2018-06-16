@@ -62,7 +62,7 @@ angular.module('app', [])
    
 api.comment(
   '', 
-  'dtube', // Parent Permlink
+  'dmania', // Parent Permlink
   'chaithanya97', // Your username
   permlink, // Your post permlink
   'Demo', // Title
