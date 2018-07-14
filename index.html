@@ -18,6 +18,24 @@
     hr { margin: 40px 0; }
     h3 { margin-bottom: 20px; }
   </style>
+  <script>
+$(document).ready(function(){
+
+    $("button").click(function(){
+       
+	$.ajax({
+		method: "POST",
+		url: "https://spee.ch/api/claim/publish",
+		data: { name: "enc", file: "./rose (1).jpeg" }
+	      })
+	.done(function( msg ) {
+		alert( "Data Saved: " + msg );
+		});
+    });
+
+});
+</script>
+  
 </head>
 
 <body>
@@ -41,6 +59,9 @@
   
   
 </div>
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button>Get External Content</button>
 
 </body>
 </html>
