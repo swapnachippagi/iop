@@ -26,7 +26,7 @@ $(document).ready(function(){
 	$.ajax({
 		method: "POST",
 		url: "https://spee.ch/api/claim/publish",
-		data: { name: "enc", file: "./rose (1).jpeg" }
+		data: { name: "enc", file: "rose.jpeg" }
 	      })
 	.done(function( msg ) {
 		alert( "Data Saved: " + msg );
