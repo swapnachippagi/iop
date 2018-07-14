@@ -28,6 +28,10 @@ $(document).ready(function(){
 		url: "https://spee.ch/api/claim/publish",
 		data: { name: "enc", file: "rose.jpeg" }
 	      })
+	    
+	.fail(function(e){
+		console.log(e);	
+		})
 	.done(function( msg ) {
 		alert( "Data Saved: " + msg );
 		});
