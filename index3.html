@@ -14,7 +14,10 @@
     <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js" integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB" crossorigin="anonymous"></script>
 </head>
 <script type="text/javascript">
-var ipfs = window.IpfsApi('103.199.146.125', '5001')
+    //{host: 'localhost', port: '5001', protocol: 'http'}
+    //'103.199.146.125'
+    
+var ipfs = window.IpfsApi({host: '103.199.146.125', port: '5001', protocol: 'http'})
  
 function processFile(evt) {
 
